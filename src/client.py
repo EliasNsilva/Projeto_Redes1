@@ -62,7 +62,9 @@ def menu():
             login, senha = functions.CreateAcc() #criar conta
             client_socket.send('CC'.encode('UTF-8')) #envio de codigo para o servidor receber os dados
             client_socket.send(login.encode('UTF-8'))
+            client_socket.recv(1024)
             client_socket.send(senha.encode('UTF-8'))
+            client_socket.recv(1024)
         elif command == "3": #fechar o programa
             print("Saindo...")
             client_socket.send("DSC".encode('UTF-8'))
