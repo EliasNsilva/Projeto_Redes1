@@ -39,8 +39,14 @@ def menu():
             client_socket.send("CHAT".encode('UTF-8')) #envio de codigo para o servidor
             login = input('Login:')
             senha = input('Senha:')
-            client_socket.send(login.encode('UTF-8'))
-            client_socket.send(senha.encode('UTF-8'))
+            if login == "" or senha == "":
+                client_socket.send("!".encode('UTF-8'))
+                client_socket.send("!".encode('UTF-8'))
+            else:
+                client_socket.send(login.encode('UTF-8'))
+                client_socket.send(senha.encode('UTF-8'))
+
+            
 
             code = client_socket.recv(1024).decode('UTF-8') #recebe o codigo para validar ou não o usuario
 
