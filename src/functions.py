@@ -11,7 +11,7 @@ def CreateAcc(): #cria uma conta
         login = input("Login(esse será seu nick no chat): ")
         senha = input("Senha: ")
         confirmSenha = input("Confirme a Senha: ")
-        if senha == confirmSenha:
+        if ((senha == confirmSenha) and (senha !="" and login !="")):
             clear()
             print("CONTA CRIADA!")
             time.sleep(1)
@@ -20,6 +20,6 @@ def CreateAcc(): #cria uma conta
             time.sleep(2)
             return login,senha
         else:
-            print("Senhas diferentes, tente novamente!")
+            print("Dados inconsistentes, tente novamente!")
             time.sleep(1)
             clear()
