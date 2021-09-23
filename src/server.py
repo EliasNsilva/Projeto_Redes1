@@ -31,8 +31,10 @@ def process(server_input,address):
         elif(response == "CHAT"):
             login = server_input.recv(1024).decode('UTF-8')
             senha = server_input.recv(1024).decode('UTF-8')
+            if (login == "!" or senha == "!"):
+                server_input.send("!LOG_ERR".encode('UTF-8'))
 
-            if login in dados: #verifica ser o usuario é valido
+            elif login in dados: #verifica ser o usuario é valido
                 if dados[login] == senha:
                     server_input.send("!OK".encode('UTF-8')) #envia um codigo de validação de usuario ao cliente
 
